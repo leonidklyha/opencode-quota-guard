@@ -1,0 +1,51 @@
+{
+  "name": "opencode-quota-guard",
+  "version": "0.14.0",
+  "private": true,
+  "type": "module",
+  "description": "Quota warnings, per-provider monitoring controls and manual session model switching for OpenCode Desktop; nothing automatic",
+  "license": "MIT",
+  "keywords": ["opencode", "opencode-plugin", "quota", "usage", "limits", "desktop", "gui"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leonidklyha/opencode-quota-guard.git"
+  },
+  "files": [
+    "index.js",
+    "core.js",
+    "diagnostics.js",
+    "meter.js",
+    "providers.js",
+    "rpc.js",
+    "rpc-server.js",
+    "stats.js",
+    "src",
+    "dist",
+    "README.md",
+    "ARCHITECTURE.md",
+    "PROVIDERS.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./rpc": "./rpc.js",
+    "./gui-experimental": "./dist/gui-experimental.cjs"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev:gui": "vite build --watch",
+    "prepare": "npm run build",
+    "test": "node --test test/*.test.js",
+    "check": "node --check index.js && node --check core.js && node --check diagnostics.js && node --check meter.js && node --check providers.js && node --check rpc.js && node --check rpc-server.js && node --check stats.js"
+  },
+  "dependencies": {
+    "@opencode/client": "2.3.0",
+    "@opencode/plugin": "2.3.0",
+    "@opencode/util": "2.3.0"
+  },
+  "devDependencies": {
+    "solid-js": "^1.9.0",
+    "vite": "^7.0.0",
+    "vite-plugin-solid": "^2.11.0"
+  }
+}
